@@ -109,15 +109,19 @@ namespace NLayer.Decoder
                 {
                     frameSize = (12 * BitRate / SampleRate + Padding) * 4;
                 }
+                else if (Layer == MpegLayer.LayerIII && Version > MpegVersion.Version1)
+                {
+                    frameSize = 72 * BitRate / SampleRate + Padding; // MPEG2 / 2.5 Layer III
+                }
                 else
                 {
-                    frameSize = 144 * BitRate / SampleRate + Padding;
+                    frameSize = 144 * BitRate / SampleRate + Padding; // Layer II, or Layer III MPEG1
                 }
             }
             else
             {
-                // "free" frame...  we have to calculate it later
-                frameSize = _readOffset + GetSideDataSize() + Padding; // we know the frame will be at least this big...
+                // free format: size determined later; ensure minimum to cover side info
+                frameSize = _readOffset + GetSideDataSize() + Padding;
             }
 
             // now check the crc if one is present
@@ -370,17 +374,6 @@ namespace NLayer.Decoder
             // Frames
             info.VBRFrames = buf[14] << 24 | buf[15] << 16 | buf[16] << 8 | buf[17];
 
-            // TOC
-            // entries
-            var tocEntries = buf[18] << 8 | buf[19];
-            var tocScale = buf[20] << 8 | buf[21];
-            var tocEntrySize = buf[22] << 8 | buf[23];
-            var tocFramesPerEntry = buf[24] << 8 | buf[25];
-            var tocSize = tocEntries * tocEntrySize;
-
-            var toc = new byte[tocSize];
-            if (Read(62, toc) != tocSize) return null;
-
             return info;
         }
 
@@ -531,9 +524,9 @@ namespace NLayer.Decoder
             {
                 var b = ReadByte(_readOffset);
                 if (b == -1) throw new System.IO.EndOfStreamException();
-                
+
                 ++_readOffset;
-                
+
                 _bitBucket <<= 8;
                 _bitBucket |= (byte)(b & 0xFF);
                 _bitsRead += 8;
