@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14 d17.14
+VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{F133D458-0EC2-4612-8D14-89B788E4A0E9}"
 EndProject
@@ -15,6 +15,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayer", "NLayer\NLayer.csproj", "{045D6A5F-BCA0-4144-AB8A-7AAC146420C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayerMp3ToWav", "NLayerMp3ToWav\NLayerMp3ToWav.csproj", "{179C3C93-D995-44BA-3246-D9B1DE603857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiMp3ToWav", "MauiMp3ToWav\MauiMp3ToWav.csproj", "{1D4DC918-05A3-4495-B056-D061EA5CA6E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,11 @@ Global
 		{179C3C93-D995-44BA-3246-D9B1DE603857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{179C3C93-D995-44BA-3246-D9B1DE603857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{179C3C93-D995-44BA-3246-D9B1DE603857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D4DC918-05A3-4495-B056-D061EA5CA6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D4DC918-05A3-4495-B056-D061EA5CA6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D4DC918-05A3-4495-B056-D061EA5CA6E1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1D4DC918-05A3-4495-B056-D061EA5CA6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D4DC918-05A3-4495-B056-D061EA5CA6E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
